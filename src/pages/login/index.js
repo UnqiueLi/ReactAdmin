@@ -32,7 +32,14 @@ class Login extends Component {
                                 getFieldDecorator('username', {
                                     rules: [{
                                         required: true,
-                                        message: 'Please input your username!'
+                                        //自定义校验
+                                        validator(rule, value, callback) { 
+                                            console.log(rule, value, callback)
+                                            if (value === '1') { 
+                                                callback('不符')
+                                            }
+                                            callback()
+                                        }
                                     }],
                                 })(<Input
                                     prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
