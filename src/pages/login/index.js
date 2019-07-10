@@ -8,14 +8,24 @@ class Login extends Component {
     handleSubmit = (event) => { 
         // 阻止时间的默认行为
         event.preventDefault()
-        console.log(event)
-        const from = this.props.form
-        const data = from.getFieldsValue()
-        console.log('data',data);
+        // console.log(event)
+        const form = this.props.form
+        const data = form.getFieldsValue()
+        console.log('data', data)
+    /* 对所有表单校验 */
+        form.validateFields((err,values)=>{
+            console.log('vidild', err, values)
+            if (!err) {
+                console.log('success')
+            } else { 
+                console.log('fail')
+            }
+        })
     }
     render() {
         const {
-            getFieldDecorator
+            getFieldDecorator,
+            validateFields,
         } = this.props.form
         return (
             <div className="login">
