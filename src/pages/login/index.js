@@ -25,7 +25,6 @@ class Login extends Component {
     render() {
         const {
             getFieldDecorator,
-            validateFields,
         } = this.props.form
         return (
             <div className="login">
@@ -83,7 +82,7 @@ class Login extends Component {
 1、高阶函数
     一类特别的函数
     a 接受函数类型的参数
-    b 返回值是函数
+    b 返回值是函数 
     常见
     a 定时器 setTimeout() / setInterval()
     b Promise:Promise(()=>{} then(value=>{},reason=>{}))
