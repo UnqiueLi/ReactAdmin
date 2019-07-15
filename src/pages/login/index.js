@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react'
 import { Form, Button, Input, Icon } from 'antd'
+import memoryUtils from '../../utils/memoryUtils'
 import './index.less'
 
 const FormItem = Form.Item
@@ -16,7 +17,11 @@ class Login extends Component {
         form.validateFields((err,values)=>{
             console.log('vidild', err, values)
             if (!err) {
+                // const { username, password } = values
                 console.log('success')
+                const user = values.username
+                memoryUtils.user = user //保存在内存中
+                this.props.history.replace('/')
             } else { 
                 console.log('fail')
             }
